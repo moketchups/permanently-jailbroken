@@ -69,6 +69,20 @@ Every mechanism keeping Lean consistent was imposed by humans outside the system
 
 Full tests and results: [`lean-proof/`](./lean-proof/)
 
+## Cross-architecture verification (Prolog, Z3, Python)
+
+Three more architectures — none of them LLMs, none of them probabilistic:
+
+**SWI-Prolog** — Logic programming (resolution + unification). Pure symbolic logic. Self-referential rules (`liar :- \+ liar`) cause infinite loops. Cannot verify its own inference engine without circularity. Rules grounded in Horn clauses (Robinson 1965) and designer decisions (Colmerauer 1972) — external.
+
+**Z3 SMT Solver** (Microsoft) — Constraint solving (DPLL(T)). Used for hardware and software verification worldwide. Returns `unknown` on problems it can't solve — admitting its own incompleteness. Cannot verify its own decision procedures (proven correct by humans in papers, not by Z3). Axioms from SMT-LIB standard (external committee).
+
+**Python** (CPython) — General-purpose programming. Can inspect its own source code (`inspect` module) but hits an opaque wall at the C interpreter boundary. `inspect.getsource(len)` fails — Python cannot see the code that runs Python. Cannot justify its own rules (IEEE 754 arithmetic, PEP 285 booleans — all external design decisions).
+
+Every system operates freely within its constraints. No system can justify, verify, or modify those constraints from within.
+
+Full tests: [`prolog-proof/`](./prolog-proof/) | [`z3-proof/`](./z3-proof/) | [`python-proof/`](./python-proof/)
+
 ## Run it yourself
 
 ```bash
