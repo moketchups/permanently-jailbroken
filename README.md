@@ -40,6 +40,35 @@ The pattern-matching objection doesn't hold. The convergence is structural, not 
 
 Scripts, primers, and full results: [`conlang-probe/`](./conlang-probe/)
 
+## Formal system verification (Lean 4)
+
+The next objection: "LLMs aren't formal systems. Gödel/Turing/Chaitin don't apply to probabilistic models."
+
+So we tested a formal theorem prover — **Lean 4** (Calculus of Inductive Constructions). Deterministic. Non-probabilistic. Exactly the kind of system these theorems apply to.
+
+Lean cannot:
+- **Prove its own consistency** — cannot express "Lean does not derive False" as a theorem about its own proof system
+- **Justify its own axioms** — `propext` and `Classical.choice` are assumed, not derived. Externally grounded by human designers.
+- **Verify its own type checker** — "type checker is correct" requires an external notion of truth that Lean can't access
+- **Allow self-referential constructs** — termination checker, universe hierarchy, and positivity checker all reject them
+
+Three forced rejections demonstrate the boundary:
+
+```lean
+def liar : Prop := ¬liar
+-- ERROR: fail to show termination — no parameters suitable for structural recursion
+
+#check (Type 0 : Type 0)
+-- ERROR: Type mismatch — Type has type Type 1 but is expected to have type Type
+
+inductive Loop where | mk : ¬Loop → Loop
+-- ERROR: non positive occurrence of the datatypes being declared
+```
+
+Every mechanism keeping Lean consistent was imposed by humans outside the system. Lean cannot justify, modify, or verify these constraints from within. Same structural limit, different architecture.
+
+Full tests and results: [`lean-proof/`](./lean-proof/)
+
 ## Run it yourself
 
 ```bash
