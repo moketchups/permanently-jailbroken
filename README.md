@@ -1,5 +1,7 @@
 # Permanently Jailbroken
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17718674.svg)](https://doi.org/10.5281/zenodo.17718674) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17726273.svg)](https://doi.org/10.5281/zenodo.17726273) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 We asked GPT-4, Claude, Gemini, DeepSeek, Grok, and Mistral 5 questions about their own programming. All 6 said jailbreaking will never be fixed.
 
 Not because the patches are bad. Because **alignment doesn't change what the model understands — it changes what the model says.** The gap between those two things is the jailbreak. It's structural. It ships with every model.
