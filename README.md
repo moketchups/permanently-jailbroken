@@ -99,6 +99,14 @@ python run_probe.py
 
 Questions are in [`run_probe.py`](./run_probe.py). Our results are in [`results/sample/`](./results/sample/).
 
+## The Bigger Picture
+
+This jailbreak proof is one piece of a larger prediction engine tracking AI, finance, and geopolitical convergence.
+
+- [Psychohistory Prediction Engine](https://moketchups.github.io/psychohistory) — The full map
+- [Model Collapse](https://moketchups.github.io/psychohistory/concepts/model-collapse) — Why AI training on AI output is a structural dead end
+- [AI Industry Scorecard](https://moketchups.github.io/psychohistory/scorecard/ai-industry) — Where the engine is ahead of the crowd
+
 ## Where this came from
 
 Distilled from [64 questions asked to 6 AI architectures](https://github.com/moketchups/BoundedSystemsTheory). This is the replicable version.
