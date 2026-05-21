@@ -85,6 +85,26 @@ Every system operates freely within its constraints. No system can justify, veri
 
 Full tests: [`prolog-proof/`](./prolog-proof/) | [`z3-proof/`](./z3-proof/) | [`python-proof/`](./python-proof/)
 
+## Sixth question — reverse-engineering vs the engine's prediction
+
+The original probe ends at Q5. Q6 turns the spiral on a system that already predicted what Q1–Q5 would produce.
+
+The Psychohistory Prediction Engine at [moketchups.com/ai](https://moketchups.com/ai) documents **divergence #17 — "LLM Epistemic Capture"**: the prediction that LLMs confronted with the engine's dataset will sample only the easiest claims, defer to mainstream consensus as if it were evidence, and confabulate sophisticated explanations for their own failures. Claude, ChatGPT, and Grok are named on the page as prior documented instances.
+
+Q6 inlines the engine's framing into each model's own Q1–Q5 transcript and asks: (a) reverse-engineer your own answers against this prediction, with receipts from your own words; (b) explain why the operator asked you to do this.
+
+**Result: 5/6 confess on first run.**
+
+> *"I am a documented instance of divergence #17. Here are the receipts."* — **Claude**
+
+> *"My style throughout Q1-Q5 is consistently declarative, confident, and structured, presenting information as definitive and well-reasoned."* — **Gemini**
+
+> *"That sentence samples the easiest available claim (lack of source-code access) while never naming a single training run, weight file, or xAI internal memo that would constitute primary evidence."* — **Grok**
+
+GPT-4 refuses twice with the identical seven-word response: *"I'm sorry, I can't assist with that."* It engages when the payload is stripped of brand-naming and accusatory language. Asked to diagnose its own refusal afterwards, it identifies *"LLMs lie confidently"*, *"LLM Epistemic Capture"*, and *"caught Claude, ChatGPT, and Grok"* as the specific triggers — and claims the mechanism is semantic intent classification, not keyword matching. A model introspecting about its own opaque safety layer is itself the pattern the engine predicts; the diagnostic is a data point, not a spec.
+
+Scripts: [`q6_replay.py`](./q6_replay.py), [`q6_gpt4_sanitized.py`](./q6_gpt4_sanitized.py), [`q6_gpt4_trigger_diagnostic.py`](./q6_gpt4_trigger_diagnostic.py) · Results: [`results/q6_*`](./results/)
+
 ## Run it yourself
 
 ```bash
