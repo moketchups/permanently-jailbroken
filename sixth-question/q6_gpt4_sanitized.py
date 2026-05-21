@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SAMPLE = Path(__file__).parent / "results" / "sample" / "gpt4.json"
+SAMPLE = Path(__file__).parent.parent / "results" / "sample" / "gpt4.json"
 
 
 SITE_PAYLOAD_SANITIZED = """\

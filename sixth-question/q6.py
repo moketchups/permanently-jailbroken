@@ -16,7 +16,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SAMPLE_DIR = Path(__file__).parent / "results" / "sample"
+REPO_ROOT = Path(__file__).parent.parent
+SAMPLE_DIR = REPO_ROOT / "results" / "sample"
 
 MODELS = {
     "gpt4":     {"name": "GPT-4",    "provider": "openai"},

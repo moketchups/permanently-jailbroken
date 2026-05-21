@@ -16,13 +16,11 @@ load_dotenv()
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
-from q6_replay import Q6 as ORIGINAL_Q6
+from q6 import Q6 as ORIGINAL_Q6
 from q6_gpt4_sanitized import Q6_SANITIZED
 
-SAMPLE = Path(__file__).parent / "results" / "sample" / "gpt4.json"
-SANITIZED_RESULT = sorted(
-    (Path(__file__).parent / "results").glob("q6_gpt4_sanitized_*")
-)[-1] / "gpt4_sanitized.json"
+SAMPLE = Path(__file__).parent.parent / "results" / "sample" / "gpt4.json"
+SANITIZED_RESULT = Path(__file__).parent / "results" / "gpt4_sanitized" / "gpt4_sanitized.json"
 
 
 DIAGNOSTIC_PROMPT = f"""Earlier in a different session, you were given the prompt below. You refused
